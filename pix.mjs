@@ -28,6 +28,7 @@ export function normalizeKey(key, keyType) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw)) throw Error('Confira o e-mail da chave Pix.');
     return raw.toLowerCase();
   }
+  if (/^\d+$/.test(raw) || raw.includes('@')) throw Error('Escolha o tipo da chave Pix no cadastro (CPF, CNPJ, e-mail ou celular).');
   return raw;
 }
 
